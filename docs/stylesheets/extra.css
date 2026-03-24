@@ -1,0 +1,15 @@
+.mermaid svg {
+    font-size: 20px !important;
+}
+
+.mermaid svg text {
+    font-size: 20px !important;
+}
+
+.mermaid svg .taskText,
+.mermaid svg .taskTextOutsideRight,
+.mermaid svg .taskTextOutsideLeft,
+.mermaid svg .sectionTitle,
+.mermaid svg .titleText {
+    font-size: 20px !important;
+}
