@@ -1,0 +1,136 @@
+{
+    "ticks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "show_ticks": false,
+    "sections": [
+        {
+            "name": "recv()",
+            "bars": [
+                {
+                    "label": "recv()",
+                    "start": 0,
+                    "end": 5.75,
+                    "style": "active",
+                    "duration": "~10ms"
+                }
+            ]
+        },
+        {
+            "name": "CPU",
+            "bars": [
+                {
+                    "label": "avvio",
+                    "start": 0,
+                    "end": 1,
+                    "style": "crit",
+                    "duration": "~ns"
+                },
+                {
+                    "label": [
+                        "attesa dati",
+                        "IDLE"
+                    ],
+                    "start": 1,
+                    "end": 4,
+                    "style": "idle",
+                    "duration": "~10ms"
+                },
+                {
+                    "label": [
+                        "ricezione",
+                        "invio ACK"
+                    ],
+                    "start": 4,
+                    "end": 5.75,
+                    "style": "crit",
+                    "duration": "~ns"
+                }
+            ]
+        },
+        {
+            "name": "send()",
+            "bars": [
+                {
+                    "label": "send()",
+                    "start": 0,
+                    "end": 12,
+                    "style": "active",
+                    "duration": "~10ms"
+                }
+            ]
+        },
+        {
+            "name": "CPU",
+            "bars": [
+                {
+                    "label": [
+                        "invio",
+                        "dati"
+                    ],
+                    "start": 2,
+                    "end": 3,
+                    "style": "crit",
+                    "duration": "~ns"
+                },
+                {
+                    "label": [
+                        "attesa ACK",
+                        "IDLE"
+                    ],
+                    "start": 3,
+                    "end": 11,
+                    "style": "idle",
+                    "duration": "~10ms"
+                },
+                {
+                    "label": "fine",
+                    "start": 11,
+                    "end": 12,
+                    "style": "crit",
+                    "duration": "~ns"
+                }
+            ]
+        }
+    ],
+    "groups": [
+        {
+            "name": "Server",
+            "sections": [
+                0,
+                1
+            ]
+        },
+        {
+            "name": "Client",
+            "sections": [
+                2,
+                3
+            ]
+        }
+    ],
+    "markers": [
+        {
+            "at": 4,
+            "label": "arrivo dati al server",
+            "color": "yellow"
+        },
+        {
+            "at": 11,
+            "label": "arrivo ACK al client",
+            "color": "orange"
+        }
+    ]
+}
