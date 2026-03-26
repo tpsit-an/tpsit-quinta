@@ -108,12 +108,14 @@
     "groups": [
         {
             "name": "Server",
+            "color": "blue!20",
             "sections": [
                 0,
                 1
             ]
         },
         {
+            "color": "red!30",
             "name": "Client",
             "sections": [
                 2,

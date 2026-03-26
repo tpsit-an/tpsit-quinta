@@ -56,7 +56,7 @@ STYLES = {
 
 BAR_HEIGHT = 0.6
 SECTION_GAP = 0.2
-GROUP_GAP = 0.6
+GROUP_GAP = 0.05
 GROUP_PAD = 0.
 ROW_GAP = 0.
 
@@ -134,7 +134,8 @@ def generate_tikz(data):
             last_sec = sections[group_sections[-1]]
             has_last_duration = any(b.get("duration") for b in last_sec["bars"])
             extra_pad = 0.35 if has_last_duration else 0
-            group_y_ranges.append((group["name"], group_y_top, y + GROUP_PAD + extra_pad))
+            group_color = group.get("color", None)
+            group_y_ranges.append((group["name"], group_y_top, y + GROUP_PAD + extra_pad, group_color))
             y += GROUP_PAD + extra_pad
     else:
         for si, section in enumerate(sections):
@@ -203,13 +204,13 @@ def generate_tikz(data):
                 lines.append(f"  \\node[anchor=north, font=\\small, gray] at ({x:.2f}, {total_height + 0.1:.2f}) {{{label}}};")
 
     # Group backgrounds and vertical left labels
-    group_bg_colors = ["blue!3", "orange!4"]
+    default_group_colors = ["blue!3", "orange!4"]
     bbox_x0 = -0.2
     bbox_x1 = width + 0.2
     label_x = bbox_x0 - 0.3
-    for gi, (group_name, gy_top, gy_bot) in enumerate(group_y_ranges):
-        bg = group_bg_colors[gi % len(group_bg_colors)]
-        lines.append(f"  \\fill[{bg}, fill opacity=0.5, rounded corners=4pt] ({bbox_x0:.2f}, {gy_top:.2f}) rectangle ({bbox_x1:.2f}, {gy_bot:.2f});")
+    for gi, (group_name, gy_top, gy_bot, group_color) in enumerate(group_y_ranges):
+        bg = group_color if group_color else default_group_colors[gi % len(default_group_colors)]
+        lines.append(f"  \\fill[{bg}, fill opacity=0.15, rounded corners=0pt] ({bbox_x0:.2f}, {gy_top:.2f}) rectangle ({bbox_x1:.2f}, {gy_bot:.2f});")
         mid_y = (gy_top + gy_bot) / 2
         lines.append(f"  \\node[rotate=90, anchor=south, font=\\normalsize\\bfseries, gray] at ({label_x:.2f}, {mid_y:.2f}) {{{group_name}}};")
 
@@ -244,7 +245,7 @@ def generate_tikz(data):
             # Duration label below the bar (manual only)
             duration = bar.get("duration")
             if duration:
-                lines.append(f"  \\node[font=\\small, gray] at ({cx:.2f}, {y + BAR_HEIGHT + 0.13:.2f}) {{{duration}}};")
+                lines.append(f"  \\node[font=\\small, black] at ({cx:.2f}, {y + BAR_HEIGHT + 0.13:.2f}) {{{duration}}};")
 
             y += BAR_HEIGHT
 
