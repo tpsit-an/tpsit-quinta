@@ -1,3 +1,161 @@
+/* Code line highlights: data-exec-{color}="lines" and data-which-{color}="lines" */
+
+/* Color palette variables */
+:root {
+  --hl-red:    rgba(255, 60, 60, 0.15);
+  --hl-green:  rgba(0, 180, 80, 0.15);
+  --hl-blue:   rgba(60, 120, 255, 0.15);
+  --hl-yellow: rgba(255, 200, 0, 0.18);
+  --hl-orange: rgba(255, 140, 0, 0.15);
+  --hl-purple: rgba(180, 80, 255, 0.15);
+  --hl-gray:   rgba(180, 180, 180, 0.15);
+  --hl-white:  rgba(255, 255, 255, 0.08);
+}
+
+/* exec: ► symbol + italic */
+code > span[class*="exec-"] {
+  display: inline-block;
+  width: 100%;
+  font-style: italic;
+}
+code > span[class*="exec-"]::before {
+  content: "▶";
+  margin-left: -1.2em;
+  width: 1.2em;
+  display: inline-block;
+  font-style: normal;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* which: ● symbol */
+code > span[class*="which-"] {
+  display: inline-block;
+  width: 100%;
+}
+code > span[class*="which-"]::before {
+  content: "?";
+  margin-left: -1.2em;
+  width: 1.2em;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 800;
+}
+
+
+/* which: ● symbol */
+code > span[class*="still-"] {
+  display: inline-block;
+  width: 100%;
+}
+code > span[class*="still-"]::before {
+  content: "⏸";
+  margin-left: -1.2em;
+  width: 1.2em;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+}
+
+
+/* which: ● symbol */
+code > span[class*="next-"] {
+  display: inline-block;
+  width: 100%;
+}
+code > span[class*="next-"]::before {
+  content: "⏯";
+  margin-left: -1.2em;
+  width: 1.2em;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Per-color backgrounds and symbol colors — exec */
+code > span.exec-red      { background-color: var(--hl-red); }
+code > span.exec-red::before    { color: rgba(255, 60, 60, 0.8); }
+code > span.exec-green    { background-color: var(--hl-green); }
+code > span.exec-green::before  { color: rgba(0, 180, 80, 0.8); }
+code > span.exec-blue     { background-color: var(--hl-blue); }
+code > span.exec-blue::before   { color: rgba(60, 120, 255, 0.8); }
+code > span.exec-yellow   { background-color: var(--hl-yellow); }
+code > span.exec-yellow::before { color: rgba(255, 200, 0, 0.8); }
+code > span.exec-orange   { background-color: var(--hl-orange); }
+code > span.exec-orange::before { color: rgba(255, 140, 0, 0.8); }
+code > span.exec-purple   { background-color: var(--hl-purple); }
+code > span.exec-purple::before { color: rgba(180, 80, 255, 0.8); }
+code > span.exec-gray     { background-color: var(--hl-gray); }
+code > span.exec-gray::before   { color: rgba(180, 180, 180, 0.8); }
+code > span.exec-white    { background-color: var(--hl-white); }
+code > span.exec-white::before  { color: rgba(255, 255, 255, 0.5); }
+
+/* Per-color backgrounds and symbol colors — which */
+code > span.which-red     { background-color: var(--hl-red); }
+code > span.which-red::before   { color: rgba(255, 60, 60, 0.8); }
+code > span.which-green   { background-color: var(--hl-green); }
+code > span.which-green::before { color: rgba(0, 180, 80, 0.8); }
+code > span.which-blue    { background-color: var(--hl-blue); }
+code > span.which-blue::before  { color: rgba(60, 120, 255, 0.8); }
+code > span.which-yellow  { background-color: var(--hl-yellow); }
+code > span.which-yellow::before { color: rgba(255, 200, 0, 0.8); }
+code > span.which-orange  { background-color: var(--hl-orange); }
+code > span.which-orange::before { color: rgba(255, 140, 0, 0.8); }
+code > span.which-purple  { background-color: var(--hl-purple); }
+code > span.which-purple::before { color: rgba(180, 80, 255, 0.8); }
+code > span.which-gray    { background-color: var(--hl-gray); }
+code > span.which-gray::before  { color: rgba(180, 180, 180, 0.8); }
+code > span.which-white   { background-color: var(--hl-white); }
+code > span.which-white::before { color: rgba(255, 255, 255, 0.5); }
+
+
+code > span.next-red     { background-color: var(--hl-red); }
+code > span.next-red::before   { color: rgba(255, 60, 60, 0.8); }
+code > span.next-green   { background-color: var(--hl-green); }
+code > span.next-green::before { color: rgba(0, 180, 80, 0.8); }
+code > span.next-blue    { background-color: var(--hl-blue); }
+code > span.next-blue::before  { color: rgba(60, 120, 255, 0.8); }
+code > span.next-yellow  { background-color: var(--hl-yellow); }
+code > span.next-yellow::before { color: rgba(255, 200, 0, 0.8); }
+code > span.next-orange  { background-color: var(--hl-orange); }
+code > span.next-orange::before { color: rgba(255, 140, 0, 0.8); }
+code > span.next-purple  { background-color: var(--hl-purple); }
+code > span.next-purple::before { color: rgba(180, 80, 255, 0.8); }
+code > span.next-gray    { background-color: var(--hl-gray); }
+code > span.next-gray::before  { color: rgba(180, 180, 180, 0.8); }
+code > span.next-white   { background-color: var(--hl-white); }
+code > span.next-white::before { color: rgba(255, 255, 255, 0.5); }
+
+
+
+code > span.still-red     { background-color: var(--hl-red); }
+code > span.still-red::before   { color: rgba(255, 60, 60, 0.8); }
+code > span.still-green   { background-color: var(--hl-green); }
+code > span.still-green::before { color: rgba(0, 180, 80, 0.8); }
+code > span.still-blue    { background-color: var(--hl-blue); }
+code > span.still-blue::before  { color: rgba(60, 120, 255, 0.8); }
+code > span.still-yellow  { background-color: var(--hl-yellow); }
+code > span.still-yellow::before { color: rgba(255, 200, 0, 0.8); }
+code > span.still-orange  { background-color: var(--hl-orange); }
+code > span.still-orange::before { color: rgba(255, 140, 0, 0.8); }
+code > span.still-purple  { background-color: var(--hl-purple); }
+code > span.still-purple::before { color: rgba(180, 80, 255, 0.8); }
+code > span.still-gray    { background-color: var(--hl-gray); }
+code > span.still-gray::before  { color: rgba(180, 180, 180, 0.8); }
+code > span.still-white   { background-color: var(--hl-white); }
+code > span.still-white::before { color: rgba(255, 255, 255, 0.5); }
+
+
+code > span.read-red     { background-color: var(--hl-red); }
+code > span.read-green   { background-color: var(--hl-green); }
+code > span.read-blue    { background-color: var(--hl-blue); }
+code > span.read-yellow  { background-color: var(--hl-yellow); }
+code > span.read-orange  { background-color: var(--hl-orange); }
+code > span.read-purple  { background-color: var(--hl-purple); }
+code > span.read-gray    { background-color: var(--hl-gray); }
+code > span.read-white   { background-color: var(--hl-white); }
+
 .mermaid svg {
     font-size: 20px !important;
 }

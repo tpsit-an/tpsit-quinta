@@ -1,7 +1,7 @@
 {
-    "title": "CPU del client — send()",
     "ticks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     "show_ticks": false,
+    "width": 18,
     "sections": [
         {
             "name": "send()",
