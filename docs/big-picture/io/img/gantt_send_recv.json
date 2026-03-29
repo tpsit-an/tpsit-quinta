@@ -23,13 +23,14 @@
                 {
                     "label": "recv()",
                     "start": 0,
-                    "end": 5.75,
+                    "end": 7.5,
                     "style": "active",
-                    "duration": "~10ms"
+                    "duration": "~ms"
                 }
             ]
         },
         {
+            "id": "recv",
             "name": "CPU",
             "bars": [
                 {
@@ -45,19 +46,28 @@
                         "IDLE"
                     ],
                     "start": 1,
-                    "end": 4,
+                    "end": 5.5,
                     "style": "idle",
-                    "duration": "~10ms"
+                    "duration": "~ms"
                 },
                 {
                     "label": [
                         "ricezione",
-                        "invio ACK"
+                        "DATA"
                     ],
-                    "start": 4,
-                    "end": 5.75,
+                    "end": 6.75,
                     "style": "crit",
-                    "duration": "~ns"
+                    "duration": "~ns",
+                    "row": "cli_final" 
+                },
+                {
+                    "label": [
+                        "invio", "ACK"
+                    ],
+                    "end": 7.5,
+                    "style": "crit",
+                    "duration": "~ns",
+                    "row": "cli_final"
                 }
             ]
         },
@@ -69,11 +79,12 @@
                     "start": 0,
                     "end": 12,
                     "style": "active",
-                    "duration": "~10ms"
+                    "duration": "~ms"
                 }
             ]
         },
         {
+            "id": "send",
             "name": "CPU",
             "bars": [
                 {
@@ -94,12 +105,12 @@
                     "start": 3,
                     "end": 11,
                     "style": "idle",
-                    "duration": "~10ms"
+                    "duration": "~ms"
                 },
                 {
                     "label": "fine",
                     "start": 11,
-                    "end": 12,
+                    "end": 11.65,
                     "style": "crit",
                     "duration": "~ns"
                 }
@@ -126,7 +137,13 @@
     ],
     "markers": [
         {
-            "at": 4,
+            "at": 7.5,
+            "label": "recv si sblocca",
+            "color": "green",
+            "position": "bottom"
+        },
+        {
+            "at": 5.5,
             "label": "arrivo dati al server",
             "color": "yellow"
         },
@@ -134,6 +151,34 @@
             "at": 11,
             "label": "arrivo ACK al client",
             "color": "orange"
+        },
+        {
+            "at": 11.65,
+            "label": "send si sblocca",
+            "color": "green",
+            "position": "bottom"
+        }
+    ],
+    "arrows": [
+        {
+            "from": "send-0.east",
+            "to": "recv-2.west",
+            "label": "DATA",
+            "color": "blue",
+            "out": 0,
+            "in": 180,
+            "looseness": 1,
+            "label_pos": 0.75
+        },
+        {
+            "from": "recv-3.east",
+            "to": "send-2.west",
+            "label": "ACK",
+            "color": "purple",
+            "out": 0,
+            "in": 180,
+            "looseness": 1,
+            "label_pos": 0.25
         }
     ]
 }

@@ -6,14 +6,14 @@
         {
             "name": "recv()",
             "bars": [
-                {"label": "recv()", "start": 0, "end": 10, "style": "active", "duration": "~10ms"}
+                {"label": "recv()", "start": 0, "end": 10, "style": "active", "duration": "~ms"}
             ]
         },
         {
             "name": "CPU",
             "bars": [
                 {"label": "avvio", "start": 0, "end": 1, "style": "crit", "duration": "~ns"},
-                {"label": "attesa dati (IDLE)", "start": 1, "end": 9, "style": "idle", "duration": "~10ms"},
+                {"label": "attesa dati (IDLE)", "start": 1, "end": 9, "style": "idle", "duration": "~ms"},
                 {"label": "invio ACK", "start": 9, "end": 10, "style": "crit", "duration": "~ns"}
             ]
         }

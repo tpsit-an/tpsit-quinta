@@ -6,14 +6,14 @@
         {
             "name": "connect()",
             "bars": [
-                {"label": "connect()", "start": 0, "end": 10, "style": "active", "duration": "~10ms"}
+                {"label": "connect()", "start": 0, "end": 10, "style": "active", "duration": "~ms"}
             ]
         },
         {
             "name": "CPU",
             "bars": [
                 {"label": "invio SYN", "start": 0, "end": 1, "style": "crit", "duration": "~ns"},
-                {"label": "attesa SYN+ACK (IDLE)", "start": 1, "end": 8, "style": "idle", "duration": "~10ms"},
+                {"label": "attesa SYN+ACK (IDLE)", "start": 1, "end": 8, "style": "idle", "duration": "~ms"},
                 {"label": "elabora SYN+ACK", "start": 8, "end": 9, "style": "crit", "row": "final", "duration": "~ns"},
                 {"label": "invio ACK", "start": 9, "end": 10, "style": "crit", "row": "final", "duration": "~ns"}
             ]

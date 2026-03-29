@@ -51,9 +51,39 @@
         }
     ]
     , "markers": [
-        {"at": "accept-1.east", "label": "arrivo SYN", "color": "orange"},
-        {"at": 16, "label": "accept si sblocca", "color": "green"},
-        {"position": "bottom", "at": "connect-1.east", "label": "arrivo SYN+ACK", "color": "orange"},
-        {"position": "bottom", "at": 12, "label": "connect si sblocca", "color": "green"}
+        { "at": "accept-1.east", "label": "arrivo SYN", "color": "orange"},
+        { "position": "bottom", "at": 16, "label": "accept si sblocca", "color": "green"},
+        { "at": "connect-1.east", "label": "arrivo SYN+ACK", "color": "orange"},
+        { "position": "bottom", "at": 12, "label": "connect si sblocca", "color": "green"}
+    ],
+    "arrows": [
+        {
+            "from": "connect-0.east",
+            "to": "accept-2.west",
+            "label": "SYN",
+            "color": "blue",
+            "out": 0,
+            "in": 180,
+            "looseness": 1
+        },
+        {
+            "from": "accept-3.east",
+            "to": "connect-2.west",
+            "label": "SYN+ACK",
+            "color": "purple",
+            "out": 0,
+            "in": 180,
+            "looseness": 1,
+            "label_pos": "0.4"
+        },
+        {
+            "from": "connect-3.east",
+            "to": "accept-5.west",
+            "label": "ACK",
+            "color": "blue",
+            "out": 0,
+            "in": 180,
+            "looseness": 1
+        }
     ]
 }

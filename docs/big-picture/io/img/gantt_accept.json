@@ -6,7 +6,7 @@
         {
             "name": "accept()",
             "bars": [
-                {"label": "accept()", "start": 0, "end": 12, "style": "active", "duration": "~10ms"}
+                {"label": "accept()", "start": 0, "end": 12, "style": "active", "duration": "~ms"}
             ]
         },
         {

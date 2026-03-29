@@ -1,0 +1,74 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\renewcommand{\familydefault}{\ttdefault}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,arrows.meta}
+\begin{document}
+\begin{tikzpicture}[y=-1cm]
+  \fill[red!85, rounded corners=1pt] (0.00, -2.30) rectangle (0.50, -1.80);
+  \draw[red!50, rounded corners=1pt] (0.00, -2.30) rectangle (0.50, -1.80);
+  \node[anchor=west, font=\normalsize, gray, text width=4.53cm] at (0.65, -2.05) {CPU attiva};
+  \fill[teal!90, rounded corners=1pt] (5.33, -2.30) rectangle (5.83, -1.80);
+  \draw[teal!50, rounded corners=1pt] (5.33, -2.30) rectangle (5.83, -1.80);
+  \node[anchor=west, font=\normalsize, gray, text width=4.53cm] at (5.98, -2.05) {Linea di esecuzione bloccata};
+  \fill[gray!90, rounded corners=1pt] (10.67, -2.30) rectangle (11.17, -1.80);
+  \draw[gray!90, rounded corners=1pt] (10.67, -2.30) rectangle (11.17, -1.80);
+  \node[anchor=west, font=\normalsize, gray, text width=4.53cm] at (11.32, -2.05) {CPU inattiva (IDLE)};
+  \draw[-stealth, blue!40, thin] (1.50, 1.95) to[out=0, in=180] node[midway, sloped, above, font=\scriptsize, blue!70] {SYN} (9.00, 10.20);
+  \node[inner sep=0pt, minimum width=16.00cm, minimum height=0.90cm, fill=teal!90, draw=teal!50, rounded corners=2pt] (bar_s0_b0) at (8.00, 0.75) {};
+  \node[font=\normalsize\bfseries, white, text width=15.80cm, align=center] at (8.00, 0.75) {accept()};
+  \node[font=\normalsize, gray!70] (dur_s0_b0) at (8.00, 1.33) {$\sim$ms};
+  \node[inner sep=0pt, minimum width=1.50cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s1_b0) at (0.75, 1.95) {};
+  \node[font=\normalsize\bfseries, white, text width=1.30cm, align=center] at (0.75, 1.95) {ascolto};
+  \node[font=\normalsize, gray!70] (dur_s1_b0) at (0.75, 2.53) {$\sim$ns};
+  \node[inner sep=0pt, minimum width=2.50cm, minimum height=0.90cm, fill=gray!90, draw=gray!90, rounded corners=2pt] (bar_s1_b1) at (2.75, 2.85) {};
+  \node[font=\normalsize\bfseries, white, text width=2.30cm, align=center] at (2.75, 2.85) {attesa SYN (IDLE)};
+  \node[font=\normalsize, gray!70] (dur_s1_b1) at (2.75, 3.43) {$\sim$ms};
+  \node[inner sep=0pt, minimum width=1.20cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s1_b2) at (4.60, 3.75) {};
+  \node[font=\normalsize\bfseries, white] at (4.60, 3.57) {elabora};
+  \node[font=\normalsize\bfseries, white] at (4.60, 3.93) {SYN};
+  \node[font=\normalsize, gray!70] (dur_s1_b2) at (4.60, 4.33) {$\sim$ns};
+  \node[inner sep=0pt, minimum width=1.20cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s1_b3) at (5.80, 3.75) {};
+  \node[font=\normalsize\bfseries, white] at (5.80, 3.57) {invio};
+  \node[font=\normalsize\bfseries, white] at (5.80, 3.93) {SYN+ACK};
+  \node[font=\normalsize, gray!70] (dur_s1_b3) at (5.80, 4.33) {$\sim$ns};
+  \node[inner sep=0pt, minimum width=8.10cm, minimum height=0.90cm, fill=gray!90, draw=gray!90, rounded corners=2pt] (bar_s1_b4) at (10.45, 4.65) {};
+  \node[font=\normalsize\bfseries, white] at (10.45, 4.47) {attesa};
+  \node[font=\normalsize\bfseries, white] at (10.45, 4.83) {ACK (IDLE)};
+  \node[font=\normalsize, gray!70] (dur_s1_b4) at (10.45, 5.23) {$\sim$ms};
+  \node[inner sep=0pt, minimum width=1.50cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s1_b5) at (15.25, 5.55) {};
+  \node[font=\normalsize\bfseries, white] at (15.25, 5.37) {elabora};
+  \node[font=\normalsize\bfseries, white] at (15.25, 5.73) {ACK};
+  \node[font=\normalsize, gray!70] (dur_s1_b5) at (15.25, 6.13) {$\sim$ns};
+  \node[inner sep=0pt, minimum width=11.00cm, minimum height=0.90cm, fill=teal!90, draw=teal!50, rounded corners=2pt] (bar_s2_b0) at (6.50, 7.20) {};
+  \node[font=\normalsize\bfseries, white, text width=10.80cm, align=center] at (6.50, 7.20) {connect()};
+  \node[font=\normalsize, gray!70] (dur_s2_b0) at (6.50, 7.78) {$\sim$ms};
+  \node[inner sep=0pt, minimum width=1.00cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s3_b0) at (1.50, 8.40) {};
+  \node[font=\normalsize\bfseries, white, text width=0.80cm, align=center] at (1.50, 8.40) {invio SYN};
+  \node[font=\normalsize, gray!70] (dur_s3_b0) at (1.50, 8.98) {$\sim$ns};
+  \node[inner sep=0pt, minimum width=7.00cm, minimum height=0.90cm, fill=gray!90, draw=gray!90, rounded corners=2pt] (bar_s3_b1) at (5.50, 9.30) {};
+  \node[font=\normalsize\bfseries, white, text width=6.80cm, align=center] at (5.50, 9.30) {attesa SYN+ACK (IDLE)};
+  \node[font=\normalsize, gray!70] (dur_s3_b1) at (5.50, 9.88) {$\sim$ms};
+  \node[inner sep=0pt, minimum width=1.50cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s3_b2) at (9.75, 10.20) {};
+  \node[font=\normalsize\bfseries, white] at (9.75, 10.02) {elabora};
+  \node[font=\normalsize\bfseries, white] at (9.75, 10.38) {SYN+ACK};
+  \node[font=\normalsize, gray!70] (dur_s3_b2) at (9.75, 10.78) {$\sim$ns};
+  \node[inner sep=0pt, minimum width=1.50cm, minimum height=0.90cm, fill=red!85, draw=red!50, rounded corners=2pt] (bar_s3_b3) at (11.25, 10.20) {};
+  \node[font=\normalsize\bfseries, white] at (11.25, 10.02) {invio};
+  \node[font=\normalsize\bfseries, white] at (11.25, 10.38) {ACK};
+  \node[font=\normalsize, gray!70] (dur_s3_b3) at (11.25, 10.78) {$\sim$ns};
+  \node[anchor=south, font=\normalsize\bfseries, orange, text width=3cm, align=center] at (4.00, -0.20) {arrivo SYN};
+  \node[anchor=south, font=\normalsize\bfseries, green, text width=3cm, align=center] at (16.00, -0.20) {accept si sblocca};
+  \node[anchor=north, font=\normalsize\bfseries, orange, text width=3cm, align=center] at (9.00, 11.20) {arrivo SYN+ACK};
+  \node[anchor=north, font=\normalsize\bfseries, green, text width=3cm, align=center] at (12.00, 11.20) {connect si sblocca};
+  \fill[blue!20, fill opacity=0.15, rounded corners=0pt] (-0.20, 0.00) rectangle (16.20, 6.35);
+  \node[rotate=90, anchor=south, font=\large\bfseries, gray] at (-0.50, 3.17) {Server};
+  \fill[red!30, fill opacity=0.15, rounded corners=0pt] (-0.20, 6.45) rectangle (16.20, 11.00);
+  \node[rotate=90, anchor=south, font=\large\bfseries, gray] at (-0.50, 8.72) {Client};
+  \draw[orange, dashed, thick] (4.00, -0.10) -- (4.00, 11.10);
+  \draw[green, dashed, thick] (16.00, -0.10) -- (16.00, 11.10);
+  \draw[orange, dashed, very thick] (9.00, -0.10) -- (9.00, 11.10);
+  \draw[green, dashed, very thick] (12.00, -0.10) -- (12.00, 11.10);
+\end{tikzpicture}
+\end{document}

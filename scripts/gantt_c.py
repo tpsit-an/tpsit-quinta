@@ -124,6 +124,37 @@ class Marker:
 
 
 @dataclass
+class Arrow:
+    from_ref: str
+    to_ref: str
+    label: str = ""
+    color: str = "black"
+    out_angle: float = 0
+    in_angle: float = 180
+    label_pos: float = 0.5
+    label_side: str = "above"
+
+    # Set after resolve
+    from_x: float = 0
+    from_y: float = 0
+    to_x: float = 0
+    to_y: float = 0
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "Arrow":
+        return cls(
+            from_ref=d["from"],
+            to_ref=d["to"],
+            label=tex_escape(d["label"]) if "label" in d else "",
+            color=d.get("color", "black"),
+            out_angle=d.get("out", 0),
+            in_angle=d.get("in", 180),
+            label_pos=d.get("label_pos", 0.5),
+            label_side=d.get("label_side", "above"),
+        )
+
+
+@dataclass
 class Section:
     name: str
     bars: list[Bar]
@@ -186,6 +217,7 @@ class GanttChart:
     sections: list[Section]
     groups: list[Group] = field(default_factory=list)
     markers: list[Marker] = field(default_factory=list)
+    arrows: list[Arrow] = field(default_factory=list)
     title: str = ""
     tick_labels: list[str] = field(default_factory=list)
     show_ticks: bool = True
@@ -207,11 +239,13 @@ class GanttChart:
         sections = [Section.from_dict(s) for s in data["sections"]]
         groups = [Group.from_dict(g) for g in data.get("groups", [])]
         markers = [Marker.from_dict(m) for m in data.get("markers", [])]
+        arrows = [Arrow.from_dict(a) for a in data.get("arrows", [])]
         return cls(
             ticks=ticks,
             sections=sections,
             groups=groups,
             markers=markers,
+            arrows=arrows,
             title=tex_escape(data.get("title", "")),
             tick_labels=tick_labels,
             show_ticks=data.get("show_ticks", True),
@@ -270,6 +304,7 @@ class GanttChart:
         self.total_height = y
         self._layout_bars()
         self._resolve_markers()
+        self._resolve_arrows()
         self._assign_names()
 
     def _layout_section(self, si: int, y_start: float):
@@ -311,6 +346,14 @@ class GanttChart:
                 marker.mx = self.bar_positions[bar_ref][anchor]
             else:
                 marker.mx = self.tx(at)
+
+    def _resolve_arrows(self):
+        for arrow in self.arrows:
+            for ref, attr_x, attr_y in [(arrow.from_ref, "from_x", "from_y"), (arrow.to_ref, "to_x", "to_y")]:
+                bar_ref, anchor = ref.rsplit(".", 1)
+                pos = self.bar_positions[bar_ref]
+                setattr(arrow, attr_x, pos[anchor])
+                setattr(arrow, attr_y, pos["y"] + pos["h"] / 2)
 
     def _assign_names(self):
         """Assign TikZ node names to all elements."""
@@ -418,7 +461,7 @@ class TikzMarkerLabel:
         if self.nowrap or m.nowrap:
             return [f"  \\node[anchor={anchor}, font=\\normalsize\\bfseries, {m.color}] {name_str}at ({m.mx:.2f}, {my:.2f}) {{{m.label}}};"]
         else:
-            return [f"  \\node[anchor={anchor}, font=\\normalsize\\bfseries, {m.color}, text width=3cm, align=center] {name_str}at ({m.mx:.2f}, {my:.2f}) {{{m.label}}};"]
+            return [f"  \\node[anchor={anchor}, font=\\normalsize\\bfseries, {m.color}, text width=2cm, align=center] {name_str}at ({m.mx:.2f}, {my:.2f}) {{{m.label}}};"]
 
 
 @dataclass
@@ -431,6 +474,18 @@ class TikzMarkerLine:
         m = self.marker
         lw = "very thick" if m.position == "bottom" else "thick"
         return [f"  \\draw[{m.color}, dashed, {lw}] ({m.mx:.2f}, {self.y_top:.2f}) -- ({m.mx:.2f}, {self.y_bot:.2f});"]
+
+
+@dataclass
+class TikzArrow:
+    arrow: Arrow
+
+    def render(self) -> list[str]:
+        a = self.arrow
+        label_opt = f" node[pos={a.label_pos}, sloped, {a.label_side}, font=\\scriptsize, {a.color}!70] {{{a.label}}}" if a.label else ""
+        return [
+            f"  \\draw[-stealth, {a.color}!40, thin] ({a.from_x:.2f}, {a.from_y:.2f}) to[out={a.out_angle:.0f}, in={a.in_angle:.0f}]{label_opt} ({a.to_x:.2f}, {a.to_y:.2f});"
+        ]
 
 
 @dataclass
@@ -470,6 +525,7 @@ class TikzRenderer:
         self._legend(legend_items, top_offset)
         self._title(top_offset)
         self._ticks()
+        self._arrows()
         self._bars()
         self._marker_labels()
         self._group_backgrounds()
@@ -496,7 +552,7 @@ class TikzRenderer:
             r"\usepackage{inconsolata}",
             r"\renewcommand{\familydefault}{\ttdefault}",
             r"\usepackage{tikz}",
-            r"\usetikzlibrary{backgrounds}",
+            r"\usetikzlibrary{backgrounds,arrows.meta}",
             r"\begin{document}",
             r"\begin{tikzpicture}[y=-1cm]",
         ])
@@ -572,6 +628,11 @@ class TikzRenderer:
         for group in c.groups:
             for marker in group.markers:
                 self.lines.extend(TikzMarkerLine(marker=marker, y_top=group.y_top - 0.1, y_bot=group.y_bot + 0.1).render())
+
+    def _arrows(self):
+        c = self.chart
+        for arrow in c.arrows:
+            self.lines.extend(TikzArrow(arrow=arrow).render())
 
 
 # --- Compiler ---
