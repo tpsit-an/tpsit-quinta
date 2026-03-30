@@ -1,0 +1,89 @@
+{
+    "ticks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14,15,16],
+    "show_ticks": false,
+    "width": 16,
+    "sections": [
+        {
+            "name": "accept()",
+            "bars": [
+                {"label": "accept()", "start": 0, "end": 16, "style": "active", "duration": "~ms"}
+            ]
+        },
+        {
+            "id": "accept",
+            "name": "CPU",
+            "bars": [
+                {"label": "ascolto", "start": 0, "end": 1.5, "style": "crit", "duration": "~ns"},
+                {"label": "attesa SYN (IDLE)", "end": 4, "style": "idle", "duration": "~ms"},
+                {"label": ["elabora", "SYN"], "end": 5.2, "style": "crit", "row": "srv_final", "duration": "~ns"},
+                {"label": ["invio", "SYN+ACK"], "end": 6.4, "style": "crit", "row": "srv_final", "duration": "~ns"},
+                {"label": ["attesa", "ACK (IDLE)"], "end": 14.5, "style": "idle", "duration": "~ms"},
+                { "id":"end", "label": ["elabora", "ACK"], "end": 16, "style": "crit", "duration": "~ns"}
+            ]
+        },
+        {
+            "name": "connect()",
+            "bars": [
+                {"label": "connect()", "start": 1, "end": 12, "style": "active", "duration": "~ms"}
+            ]
+        },
+        {
+            "id": "connect",
+            "name": "CPU",
+            "bars": [
+                {"label": "invio SYN", "start": 1, "end": 2, "style": "crit", "duration": "~ns"},
+                {"label": "attesa SYN+ACK (IDLE)", "end": 9, "style": "idle", "duration": "~ms"},
+                {"label": ["elabora", "SYN+ACK"], "end": 10.5, "style": "crit", "row": "cli_final", "duration": "~ns"},
+                {"label": ["invio", "ACK"], "end": 12, "style": "crit", "row": "cli_final", "duration": "~ns"}
+            ]
+        }
+    ],
+    "groups": [
+        {
+            "name": "Server",
+            "color": "blue!20",
+            "sections": [0, 1]
+        },
+        {
+            "name": "Client",
+            "color": "red!30",
+            "sections": [2, 3]
+        }
+    ]
+    , "markers": [
+        { "at": "accept-1.east", "label": "arrivo SYN", "color": "orange"},
+        { "position": "bottom", "at": 16, "label": "accept si sblocca", "color": "green"},
+        { "at": "connect-1.east", "label": "arrivo SYN+ACK", "color": "orange"},
+        { "position": "bottom", "at": 12, "label": "connect si sblocca", "color": "green"}
+    ],
+    "arrows": [
+        {
+            "from": "connect-0.east",
+            "to": "accept-2.west",
+            "label": "SYN",
+            "color": "blue",
+            "out": 0,
+            "in": 180,
+            "looseness": 1
+        },
+        {
+            "from": "accept-3.east",
+            "to": "connect-2.west",
+            "label": "SYN+ACK",
+            "color": "purple",
+            "out": 0,
+            "in": 180,
+            "looseness": 1,
+            "label_pos": "0.4"
+        },
+        {
+            "from": "connect-3.east",
+            "to": "accept-5.west",
+            "label": "ACK",
+            "color": "blue",
+            "out": 0,
+            "in": 180,
+            "looseness": 1
+        }
+    ]
+}

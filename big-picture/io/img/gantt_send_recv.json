@@ -1,0 +1,184 @@
+{
+    "width": 18,
+    "ticks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "show_ticks": false,
+    "sections": [
+        {
+            "name": "recv()",
+            "bars": [
+                {
+                    "label": "recv()",
+                    "start": 0,
+                    "end": 7.5,
+                    "style": "active",
+                    "duration": "~ms"
+                }
+            ]
+        },
+        {
+            "id": "recv",
+            "name": "CPU",
+            "bars": [
+                {
+                    "label": "avvio",
+                    "start": 0,
+                    "end": 1,
+                    "style": "crit",
+                    "duration": "~ns"
+                },
+                {
+                    "label": [
+                        "attesa dati",
+                        "IDLE"
+                    ],
+                    "start": 1,
+                    "end": 5.5,
+                    "style": "idle",
+                    "duration": "~ms"
+                },
+                {
+                    "label": [
+                        "ricezione",
+                        "DATA"
+                    ],
+                    "end": 6.75,
+                    "style": "crit",
+                    "duration": "~ns",
+                    "row": "cli_final" 
+                },
+                {
+                    "label": [
+                        "invio", "ACK"
+                    ],
+                    "end": 7.5,
+                    "style": "crit",
+                    "duration": "~ns",
+                    "row": "cli_final"
+                }
+            ]
+        },
+        {
+            "name": "send()",
+            "bars": [
+                {
+                    "label": "send()",
+                    "start": 2,
+                    "end": 11.65,
+                    "style": "active",
+                    "duration": "~ms"
+                }
+            ]
+        },
+        {
+            "id": "send",
+            "name": "CPU",
+            "bars": [
+                {
+                    "label": [
+                        "invio",
+                        "dati"
+                    ],
+                    "start": 2,
+                    "end": 3,
+                    "style": "crit",
+                    "duration": "~ns"
+                },
+                {
+                    "label": [
+                        "attesa ACK",
+                        "IDLE"
+                    ],
+                    "start": 3,
+                    "end": 11,
+                    "style": "idle",
+                    "duration": "~ms"
+                },
+                {
+                    "label": "fine",
+                    "start": 11,
+                    "end": 11.65,
+                    "style": "crit",
+                    "duration": "~ns"
+                }
+            ]
+        }
+    ],
+    "groups": [
+        {
+            "name": "Server",
+            "color": "blue!20",
+            "sections": [
+                0,
+                1
+            ]
+        },
+        {
+            "color": "red!30",
+            "name": "Client",
+            "sections": [
+                2,
+                3
+            ]
+        }
+    ],
+    "markers": [
+        {
+            "at": 7.5,
+            "label": "recv si sblocca",
+            "color": "green",
+            "position": "bottom"
+        },
+        {
+            "at": 5.5,
+            "label": "arrivo dati al server",
+            "color": "yellow"
+        },
+        {
+            "at": 11,
+            "label": "arrivo ACK al client",
+            "color": "orange"
+        },
+        {
+            "at": 11.65,
+            "label": "send si sblocca",
+            "color": "green",
+            "position": "bottom"
+        }
+    ],
+    "arrows": [
+        {
+            "from": "send-0.east",
+            "to": "recv-2.west",
+            "label": "DATA",
+            "color": "blue",
+            "out": 0,
+            "in": 180,
+            "looseness": 1,
+            "label_pos": 0.75
+        },
+        {
+            "from": "recv-3.east",
+            "to": "send-2.west",
+            "label": "ACK",
+            "color": "purple",
+            "out": 0,
+            "in": 180,
+            "looseness": 1,
+            "label_pos": 0.25
+        }
+    ]
+}

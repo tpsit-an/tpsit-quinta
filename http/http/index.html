@@ -1,0 +1,937 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dispense scolastiche - Quinta">
+      
+      
+      
+        <link rel="canonical" href="https://tpsit-an.github.io/tpsit-quinta/http/http/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>HTTP - TPSIT Quinta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#http" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../.." title="TPSIT Quinta" class="md-header__button md-logo" aria-label="TPSIT Quinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TPSIT Quinta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HTTP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../big-picture/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Thread, Socket e HTTP
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TPSIT Quinta" class="md-nav__button md-logo" aria-label="TPSIT Quinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TPSIT Quinta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../big-picture/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thread, Socket e HTTP
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lo-stack-tcpip-con-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Lo stack TCP/IP con HTTPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Lo stack TCP/IP con HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cose-una-risorsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cos'è una risorsa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codifica-delle-risorsa-uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codifica delle risorsa: URI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uniform-resource-locator-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uniform Resource Locator (URL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-nel-protocollo-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL nel protocollo HTTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campi-obbligatori-della-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campi obbligatori della URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nota-su-authority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nota su authority
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-protocollo-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Protocollo HTTP(s)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Protocollo HTTP(s)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#panoramica-di-una-comunicazione-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panoramica di una comunicazione HTTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-protocollo-http-nei-vari-livelli-dello-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Protocollo HTTP nei vari livelli dello stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scambio-di-dati-tra-client-e-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scambio di dati tra client e server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-metodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Metodi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="http">HTTP</h1>
+<p><strong>Autore:</strong> Lorenzo Principi</p>
+<p><strong>Argomenti necessari:</strong>
+- Thread.
+- Socket.</p>
+<hr />
+<h2 id="1-lo-stack-tcpip-con-https">1. Lo stack TCP/IP con HTTPS</h2>
+<p>È utile avere un'idea generale di ciò che avviene durante una comunicazione in rete. In questo capitolo approfondiremo il protocollo <code>HTTP</code> del livello <em>applicazione</em>. Appartenendo al livello più alto dello stack a quattro livelli, <u>per ogni</u> <u>comunicazione</u> operano <em>"al di sotto"</em> del livello <em>applicazione</em> altri tre livelli. Questo significa che in una comunicazione concreta ciascun livello utilizza un protocollo specifico utilizzando meccanismi di identificazione propri. Questo si traduce nella pratica in un pacchetto di byte composto nel seguente modo:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>   PHYSICAL header      NETWORK header       TRANSPORT header       TRANSPORT content
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   (Ethernet)           (IP)                 (TCP)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ├───────────────────┼──────────────────┼────────────────────┼──────────────────────┤
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   EC 02 73 ...        45 00 00 ...       B1 E4 01 ...        GET / HTTP/1.1 ...
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  ├───────────────────┼──────────────────┼────────────────────┼──────────────────────┤
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>       14 byte              20 byte              20 byte             variabile
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                      ╰──────────────────────────────────────────────────────────────╯
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                        contenuto di PHYSICAL
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                                      ╰─────────────────────────────────────────────╯
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                                                     contenuto di NETWORK
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                                                                          ╰──────────╯
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                                                                    contenuto di TCP
+</span></code></pre></div>
+<p>Dove nel caso del protocollo <code>HTTP</code> i protocolli usati sono i seguenti, con relativi <em>target</em> e relativa <em>codifica</em>:</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a> livello         │ protocollo          │ codifica target / target
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>─────────────────┼─────────────────────┼─────────────────────────────
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> APPLICATION     │ HTTP                │ URL / risorsa
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>─────────────────┼─────────────────────┼─────────────────────────────
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> TRANSPORT       │ TCP                 │ (IP, PORTA) / endpoint
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>─────────────────┼─────────────────────┼─────────────────────────────
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a> NETWORK         │ IP                  │ IP address / host
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                 │ (Internet Protocol) │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>─────────────────┼─────────────────────┼─────────────────────────────
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a> PHYSICAL        │ Ethernet, Wifi      │ MAC address / nodo di reteª
+</span></code></pre></div>
+ª Come una Network Interface Card (NIC), ovvero la scheda di rete.</p>
+<p>Come si può notare dallo stack, il target del protocollo indica il tipo di obbiettivo che ogni protocollo ha in una comunicazione. Nel protocollo <code>TCP</code> l'obbiettivo è un altro <em>endpoint</em>, nel protocollo <code>IP</code> un altro <em>host</em>, nel protocollo <code>HTTP</code> invece l'obbiettivo è una <em>risorsa</em>.</p>
+<p>Guardando il pacchetto <code>HTTP</code> possiamo notare come non siano presenti dei byte dedicati al livello applicazione. Questo accade in quanto il livello <em>applicazione</em> è un livello <em>astratto</em>, ovvero i dati che invia sono inclusi nel livello trasporto.</p>
+<h3 id="cose-una-risorsa">Cos'è una risorsa</h3>
+<p>Come abbiamo già detto, la <em>risorsa</em> è l'obbiettivo del protocollo <code>HTTP</code>. Ma cos'è una risorsa? Nello standard <code>RFC3986</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> è definita come segue:</p>
+<blockquote>
+<p>[...] il termine "risorsa" è utilizzato in senso generale per indicare qualsiasi elemento identificabile tramite un URI. Esempi familiari includono un documento elettronico, un'immagine, una fonte di informazioni con uno scopo coerente (ad esempio, "le previsioni del tempo di oggi per Los Angeles"), un servizio (ad esempio, un gateway da HTTP a SMS) e una raccolta di altre risorse. Una risorsa non è necessariamente accessibile tramite Internet; ad esempio, anche gli esseri umani, le società e i libri rilegati in una biblioteca possono essere risorse. [...]</p>
+</blockquote>
+<p>Come si può notare da tale definizione, le risorse non sono accessibili esclusivamente tramite Internet.</p>
+<h3 id="codifica-delle-risorsa-uri">Codifica delle risorsa: URI</h3>
+<p>Le risorse vengono codificate con lo standard Uniform Resource Identifier (<code>URI</code>). Tale codifica identifica una risorsa come una stringa, ovvero una sequenza di caratteri codificati in <code>US-ASCII</code>. Nello standard <code>RFC3986</code> la <code>URI</code> viene definita come:</p>
+<blockquote>
+<p>A Uniform Resource Identifier (URI) is a compact sequence of characters that identifies an abstract or physical resource.</p>
+</blockquote>
+<p>Nel caso del protocollo <code>HTTP</code> viene usato un sottoinsieme delle <code>URI</code>, gli Uniform Resource Locator (<code>URL</code>).</p>
+<h3 id="uniform-resource-locator-url">Uniform Resource Locator (URL)</h3>
+<p>Il termine <em>locator</em> nell'acronimo <code>URL</code> sta ad indicare che nella stringa viene anche definita la modalità con cui si dovrà accedere alla risorsa, e tale modalità è il protocollo. Lo standard <code>URI</code> non è stato creato appositamente per il protocollo <code>HTTP</code>, infatti le <code>URL</code> possono essere usate anche con altri protocolli (<code>ftp://</code> o <code>ssh://</code>).</p>
+<h3 id="url-nel-protocollo-http">URL nel protocollo HTTP</h3>
+<p>Le <code>URL</code> utilizzate nel protocollo <code>HTTP</code> (e <code>HTTPS</code>) specificano un modo di accedere alla risorsa che coinvolge due operatori:
+- L'operatore <em>client</em> che <u>chiede</u> la risorsa.
+- L'operatore <em>server</em> che <u>fornisce</u> la risorsa.</p>
+<p>Ecco un esempio di <code>URL</code> completa con protocollo <code>HTTP</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a> http://         www.iisve.it        /tool/cerca        ?tipo=cerca&amp;cerca_sito=esami        #risultati
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> ──┬────         ─────┬─────        ─────┬─────        ────────────┬───────────────        ─────┬────
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   │                  │                  │                         │                            │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   ▼                  ▼                  ▼                         ▼                            ▼
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>url::protocol    url::authority     url::path               url::query                  url::fragment
+</span></code></pre></div>
+<ul>
+<li><code>url::protocol</code>: protocollo della comunicazione a livello applicazione.</li>
+<li><code>url::authority</code>: l'autorità che possiede la risorsa.</li>
+<li><code>url::query</code>: lista di attributi <code>chiave:valore</code> separati da <code>&amp;</code>.</li>
+<li><code>url::fragment</code>: riferimento ad una sezione della pagina <code>HTML</code>.</li>
+</ul>
+<p><strong>Campo <code>url::query</code>.</strong> Il campo <code>url::query</code> è suddiviso in parametri aventi la seguente forma:</p>
+<blockquote>
+<p><code>chiave:valore</code></p>
+</blockquote>
+<p>Possono esservi più parametri, in tal caso questi sono suddivisi dal carattere <code>&amp;</code>. La sintassi è quindi la seguente:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>?‹nome_p1›=‹valore_p1›[&amp;‹nome_p2›=‹valore_p2›...]
+</span></code></pre></div>
+<p>dove le parentesi quadre indicano che possono esserci uno o più parametri.</p>
+<p><strong>Attenzione:</strong> <code>url::query</code> non è obbligatorio.</p>
+<h3 id="campi-obbligatori-della-url">Campi obbligatori della URL</h3>
+<p>Gli unici campi dell'<code>URL</code> che non sono opzionali sono <code>url::protocol</code> e <code>url::authority</code>.</p>
+<h3 id="nota-su-authority">Nota su authority</h3>
+<p><code>url::authority</code> non è da confondere con il dominio, anche se spesso nei browser vediamo solamente quest'ultimo. In modo esteso essa è definita nel seguente modo:</p>
+<blockquote>
+<p><code>user:password@host:porta</code></p>
+</blockquote>
+<p>Nel protocollo <code>HTTP</code>, <code>user</code> e <code>password</code> sono <u>vietati</u>, perciò potrà essere solamente: <code>host:porta</code>.</p>
+<p>Per quanto riguarda <code>porta</code>, anche questo è spesso omesso in quanto impostato automaticamente ad <code>80</code> per l'<code>HTTP</code> e <code>443</code> per l'<code>HTTPS</code>.</p>
+<p><strong>Attenzione:</strong> Un server può comunque accettare comunicazioni <code>HTTP</code> o <code>HTTPS</code> su porte differenti da 80 e 443 rispettivamente. In tali casi <code>porta</code> dovrà essere specificato, come ad esempio durante la fase di development di siti web si utilizzano server locali in ascolto sulla porta 3000 (<code>https://localhost:3000</code>).</p>
+<hr />
+<h2 id="2-protocollo-https">2. Protocollo HTTP(s)</h2>
+<p>Il protocollo HyperText Transfer Protocol (<code>HTTP</code>)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> è un protocollo applicazione utilizzato da due operatori per eseguire operazioni su una risorsa definita dalla <code>URL</code>:
+- Due operatori, il <em>client</em> ed il <em>server</em>.
+- Una risorsa, definita dalla <code>URL</code>.
+- Un metodo, ovvero la tipologia di operazione da fare sulla risorsa.</p>
+<p>Tali operatori comunicano a livello di trasporto con un socket <code>TCP</code>.</p>
+<h3 id="panoramica-di-una-comunicazione-http">Panoramica di una comunicazione HTTP</h3>
+<p>Il protocollo <code>HTTP</code> è un ciclo che parte dal <em>client</em>, il quale ha necessità di effettuare un'operazione su una risorsa posseduta da un altro operatore raggiungibile tramite rete internet, detto <em>server</em>. Tale operazione può essere sia di modifica o di sola acquisizione.</p>
+<ol>
+<li>Il <em>client</em> genera un documento testuale chiamato <em>request</em> (<code>REQ</code>): qui dentro mette tutte le informazioni necessarie per descrivere l'operazione che vuole effettuare sulla risorsa:</li>
+<li><code>req::url::path</code>: specifica il <em>nome</em> della risorsa posseduta dal <em>server</em>;</li>
+<li><code>req::method</code>: la tipologia di operazione;</li>
+<li><code>req::url::query</code> e <code>req::body</code>: i dati<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> che servono per effettuare tale operazione;</li>
+<li><code>req::header</code>: altre informazioni di configurazione come, ad esempio, la codifica utilizzata per i dati nel <code>req::body</code> o lo stato di autenticazione.</li>
+<li>La <code>REQ</code> viene inviata dal <em>client</em> al <em>server</em>.</li>
+<li>Il <em>server</em> riceve la <code>REQ</code>.</li>
+<li>Il <em>server</em> legge <code>req::url::path</code> per trovare la risorsa cui si riferisce il <em>client</em>:</li>
+<li>Se <code>req::url::path</code> identifica una risorsa che <u>non</u> esiste, allora genera una <em>response</em> (<code>RES</code>) con errore <code>[404, NOT FOUND]</code>, e la invia al <em>client</em>.</li>
+<li>Se <code>req::url::path</code> identifica una risorsa che esiste, prosegue allo step 5.</li>
+<li>Il <em>server</em> legge <code>req::method</code> e <strong>verifica</strong> che la funzione che gestisce tale <code>req::method</code> su tale risorsa sia <u>implementata</u>:</li>
+<li>Se non è implementata il <em>server</em> genera una <code>RES</code> con <code>res::code</code> uguale a <code>[405, METHOD NOT ALLOWED]</code> e la invia al <em>client</em>.</li>
+<li>Se invece è implementata prosegue allo step 6.</li>
+<li>Il <em>server</em> ora <strong>verifica</strong> che il <em>client</em> abbia i sufficienti permessi per effettuare l'operazione di tipo <code>req::method</code> su tale risorsa.</li>
+<li>Se il <em>client</em> non è autorizzato, il <em>server</em> genera una <code>RES</code> con errore <code>[401, UNAUTHORIZED]</code> e la invia al <em>client</em>.</li>
+<li>Se il <em>client</em> è autorizzato prosegue allo step 7.</li>
+<li>Il <em>server</em> legge i dati contenuti in <code>req::query</code> e/o <code>req::body</code>:</li>
+<li>Se i dati non sono come se li aspetta (<em>validi</em>), il <em>server</em> genera una <code>RES</code> con <code>res::code</code> uguale a <code>[400, BAD REQUEST]</code> e la invia al <em>client</em>.</li>
+<li>Se i dati sono come se li aspetta prosegue allo step 8.</li>
+<li>Il <em>server</em> effettua infine l'operazione sulla risorsa:</li>
+<li>In questa fase se si generano degli errori non è più a causa della <code>REQ</code> ma dei possibili bug presenti nell'implementazione della funzione che gestisce la <code>REQ</code> <u>nel</u> <em>server</em>. In caso di errori, il <em>server</em> genera una <code>RES</code> con <code>res::code</code> uguale a <code>[500, SERVER ERROR]</code> e la invia al <em>client</em>.</li>
+<li>Se tutto va liscio il <em>server</em> genera una <code>RES</code> con <code>res::code</code> uguale a <code>[200, OK]</code> e la invia al <em>client</em>.</li>
+</ol>
+<p>Quando il <em>client</em> riceve la <code>RES</code>:
+- Verifica l'esito attraverso <code>res::code</code>.
+- Se aveva richiesto di ricevere dei dati dal <em>server</em> legge <code>res::body</code><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> decodificandolo secondo quanto indicato negli <code>res::header</code>.</p>
+<p>Infine il <em>client</em> utilizza i dati ricevuti secondo i propri scopi. Esempi semplici: se era un'operazione di <em>acquisizione</em> dati può mostrare i dati ricevuti (come una pagina <code>HTML</code>), se era un'operazione di modifica della risorsa può avvertire che l'operazione nel <em>server</em> è andata a buon fine, o in caso contrario comunicare l'eventuale errore.</p>
+<h3 id="21-protocollo-http-nei-vari-livelli-dello-stack">2.1 Protocollo HTTP nei vari livelli dello stack</h3>
+<p><strong>Livello di trasporto: socket TCP.</strong> Il protocollo <code>HTTP</code> agisce a livello di trasporto adottando un socket <code>TCP</code> il quale funge da ponte comunicativo tra il <em>client</em> ed il <em>server</em>. Il <em>client</em> si connette, il <em>server</em> è in ascolto per eventuali connessioni in ingresso:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>         client                                   server (8.7.6.5)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>──────────────────────────────────       ──────────────────────────────────
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> s = socket(AF_INET, SOCK_STREAM)        sp = socket(AF_INET, SOCK_STREAM)
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> s.connect((&quot;8.7.6.5&quot;, 443))  ───────&gt;  sp.bind((&quot;8.7.6.5&quot;, 443))
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a> s.send(request)               ──────&gt;  sp.listen()
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a> response = s.recv(BS)                   sa = sp.accept()
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a> s.close()                    &lt;──────    request = sa.recv(BS)
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                                         response = elabora(request)
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a> # utilizza response                     sa.send(response)
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a> # secondo i suoi scopi                  sa.close()
+</span></code></pre></div>
+<p>Dove <code>BS</code> è una variabile intera a cui diamo un valore generale in quanto non è centrale durante questa spiegazione.</p>
+<p><strong>La risorsa è sempre posseduta dal server.</strong> Questo è molto importante. Si immagini il <em>server</em> composto almeno da due elementi principali:
+- Un programma che esegue l'endpoint <code>HTTP</code>, ovvero un socket <code>TCP</code> in ascolto di uno o più <em>client</em>.
+- Un sistema di archiviazione (persistenza):
+  - Un programma che esegue il Database.
+  - Un programma che esegue il File storage.</p>
+<p>Al contempo <em>client</em> è un programma che esegue un socket <code>TCP</code>.</p>
+<p><strong>Livello applicazione: ciclo <em>request</em> e <em>response</em>.</strong> Dato che è il <em>server</em> a fornire la risorsa al <em>client</em> che la richiede, il protocollo <code>HTTP</code> a livello applicazione funzionerà come segue:</p>
+<ol>
+<li>Il client genera la <em>request</em> (<code>REQ</code>): un documento testuale codificato in <code>US-ASCII</code>.</li>
+<li>Attraverso il socket <code>TCP</code> invia <code>REQ</code> al <em>server</em>.</li>
+<li>Il <em>server</em> riceve <code>REQ</code> e la elabora generando una <em>response</em> (<code>RES</code>), sempre codificata in <code>US-ASCII</code>.</li>
+<li>Il <em>client</em> riceve <code>RES</code> e la utilizza per i propri scopi.</li>
+</ol>
+<p>Questo è sintetizzato nella seguente immagine:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a> ┌──────────────┐                              ┌──────────────────────────────────────┐
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> │    client     │          TCP                 │               server                  │
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> │              ├═══════════════════════════════┤                                      │
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> │              │       ■                    ■  │                                      │
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a> │  ┌────────┐  │                               │  ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐   │
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a> │  │        │  │                               │  │  REQ                         │   │
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a> │  │  REQ   │  │    REQ                        │  │   │                          │   │
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a> │  │        │  │  ──────────────────────────&gt;  │  │   ▼                          │   │
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a> │  │  RES   │  │                               │  │  ┌───────────────────────┐   │   │
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a> │  │        │  │                               │  │  │ RES = elabora(REQ)    │───┼─┐ │
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a> │  └────────┘  │    RES                        │  │  └───────────────────────┘   │ │ │
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a> │   PROGRAMMA  │  &lt;──────────────────────────  │  │   │                          │ │ │
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a> │              │                               │  │   ▼                          │ │ │
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a> │              │                               │  │  RES              PROGRAMMA  │ │ │
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a> │              │                               │  └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘ │ │
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a> │              │                               │       ┌───────────────────┐       │ │
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a> │              │                               │       │   File storage    │&lt;──────┘ │
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a> │              │                               │       └───────────────────┘       │ │
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a> │              │                               │       ┌───────────────────┐       │ │
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a> │              │                               │       │     Database      │&lt;──────┘ │
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a> │              │                               │       └───────────────────┘         │
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a> └──────────────┘                              └──────────────────────────────────────┘
+</span></code></pre></div>
+<p>Si può notare come sia centrale la funzione <code>elabora(REQ)</code> la quale restituisce la <code>RES</code> a seconda della <code>REQ</code> <u>creata dal client</u>. In questa funzione, è possibile ma non obbligatorio che il <em>server</em> interagisca con il database ed il file storage.</p>
+<h3 id="22-scambio-di-dati-tra-client-e-server">2.2 Scambio di dati tra client e server</h3>
+<p>Il <em>client</em> ha due possibilità per inviare dati dinamici al server:
+- Il campo <code>req::url::query</code>: parametri codificati nell'<code>URL</code>. In <code>req::url::query</code> vengono mandati dati quando questi sono pochi e hanno lunghezza (in byte) piccola.
+- Il campo <code>req::body</code>: qui va qualsiasi dato, da una pagina <code>html</code> codificata in <code>UTF-8</code> ai byte di un'immagine <code>jpg</code>.</p>
+<p>Il <em>server</em> invece invia i dati solamente attraverso il <code>req::body</code>.</p>
+<p><strong>La request.</strong> La request (<code>REQ</code>) è un file testuale codificato in <code>US-ASCII</code> strutturato nel seguente modo:
+- La prima riga contiene i seguenti campi separati da un carattere spazio:
+  - <code>req::method</code>: la tipologia di operazione sulla risorsa<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.
+  - <code>req::url</code>: la <code>URL</code>. I campi della <code>URL</code> nella <code>REQ</code> sono identificati così: ad esempio <code>url::query</code> diventa <code>req::url::query</code>.
+  - <code>req::version</code>: la versione del protocollo <code>HTTP</code> (es: «<code>http/2.0</code>»).
+- <code>req::header</code>: dalla seconda riga fino al carattere <code>[CRLF]</code><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>: ciascuna riga rappresenta un <em>header</em>, campi di configurazione in forma: «<code>nome header:valore header</code>».
+- <code>req::body</code>: campo che può essere opzionale (non esiste se <code>req::method</code> è <code>GET</code>). Contiene dati inviati dal <em>client</em> al <em>server</em> codificati (il tipo di codifica è descritto nell'header <code>content-type</code>, si veda la tabella content-type).</p>
+<p>La seguente immagine mostra un esempio con body codificato in <code>JSON</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>┌───────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>│                                                                           │
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>│  req::method     req::url                                   req::version  │
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>│  ┌──────┐        ┌──────────────────────────────────────┐   ┌────────┐   │
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>│  │ POST │        │ https://iisve.it/cerca?testo=5BI#..  │   │http/2.0│   │
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>│  └──────┘        └──────────────────────────────────────┘   └────────┘   │
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>│                                                                           │
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>│  ┐  header 1   accept-encoding: gzip,deflate,br,zstd                     │
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>│  │  header 2   accept-language: en-US,en;q=0.9              req::header   │
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>│  │  header 3   content-type: application/json                             │
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>│  │  header 4   content-length: 33                                         │
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>│  ┘  header 5   user-agent: Mozilla/5.0 (X11; ...                         │
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>│     [CRLF]                                                                │
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>│                                                                           │
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>│  req::body     { &quot;messaggio&quot;: &quot;Hello World!&quot; }                            │
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>│                                                                           │
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>└───────────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
+<p><strong>La response.</strong> La response (<code>RES</code>) è un file testuale codificato in <code>US-ASCII</code> strutturato nel seguente modo:
+- La prima riga contiene i seguenti campi separati da un carattere spazio:
+  - <code>res::version</code>: la versione del protocollo <code>HTTP</code> («<code>http/2.0</code>»).
+  - <code>res::code</code>, un codice numerico che identifica l'esito della <code>REQ</code>.
+  - <code>res::reason</code>, ovvero la spiegazione testuale dell'esito.
+- <code>res::header</code>: come nella <code>REQ</code>, dalla seconda riga fino al carattere <code>[CRLF]</code>.
+- <code>res::body</code>: campo può essere opzionale, contiene i dati inviati dal <em>server</em> al <em>client</em>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>┌───────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>│                                                                           │
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>│  res::version    res::code    res::reason                                 │
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│  ┌────────┐      ┌─────┐     ┌───────────┐                              │
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│  │http/2.0│      │ 404 │     │ Not found │                              │
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│  └────────┘      └─────┘     └───────────┘                              │
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>│                                                                           │
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>│  ┐  header 1   accept-encoding: gzip,deflate,br,zstd                     │
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│  │  header 2   accept-language: en-US,en;q=0.9              res::header   │
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│  │  header 3   content-type: application/json                             │
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│  │  header 4   content-length: 33                                         │
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>│  ┘  header 5   user-agent: Mozilla/5.0 (X11; ...                         │
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>│     [CRLF]                                                                │
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>│                                                                           │
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>│  res::body     { &quot;messaggio&quot;: &quot;Page not found in my data!&quot; }              │
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>│                                                                           │
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>└───────────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
+<p><strong>Request e response: body.</strong> <code>body</code> è il <em>corpo</em> della <code>REQ</code> o <code>RES</code>. Esso trasporta i dati che il <em>client</em> vuole trasmettere al <em>server</em> e viceversa. La codifica del <code>body</code> è definita negli <code>header</code>:
+- <code>content-length</code>: numero di byte del body (sia nella <code>REQ</code> che nella <code>RES</code>).
+- <code>content-type</code>: codifica del body, si veda la tabella seguente.</p>
+<p><strong>Attenzione:</strong> Il body non è presente nelle <code>REQ</code> quando <code>req::method</code> è <code>GET</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Contenuto body</th>
+<th><code>content-type</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Immagini jpg</td>
+<td><code>image/jpg</code></td>
+</tr>
+<tr>
+<td>Immagini png</td>
+<td><code>image/png</code></td>
+</tr>
+<tr>
+<td>Pagina <code>HTML</code></td>
+<td><code>text/html</code></td>
+</tr>
+<tr>
+<td>File <code>CSS</code></td>
+<td><code>text/css</code></td>
+</tr>
+<tr>
+<td>File Javascript</td>
+<td><code>text/javascript</code></td>
+</tr>
+<tr>
+<td>File binari</td>
+<td><code>application/octet-stream</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response: status code.</strong> Il campo <code>res::code</code>, detto <em>status code</em> è un codice numerico di tre cifre, presente nella prima riga della <code>RES</code>. Esso indica l'<u>esito</u> della richiesta e separato da uno spazio c'è <code>res::reason</code>, ovvero la descrizione testuale dello <em>status code</em>.</p>
+<p>Di seguito vengono elencati i vari range di <em>status code</em>:
+- Esito <em>successful</em>, range <code>200-299</code>: indica che la richiesta è stata elaborata con successo dal <em>server</em>.
+- Esito <em>client error</em>, range <code>400-499</code>: indica che la richiesta del <em>client</em> non può essere soddisfatta perché non valida. Un esempio comune è quando il <em>client</em> chiede una pagina web che non esiste: <code>404 - Not Found Error</code>.
+- Esito <em>server error</em>, range <code>500-599</code>: indica che la richiesta del <em>client</em> non può essere soddisfatta a causa di errori verificatisi nel <em>server</em>.</p>
+<hr />
+<h2 id="3-metodi">3. Metodi</h2>
+<p>La definizione di metodo, contenuto nel campo <code>req::method</code>, è la seguente:</p>
+<blockquote>
+<p>Un metodo definisce il tipo di operazione che il <em>client</em> richiede al <em>server</em> di effettuare sulla risorsa definita dall'<code>URL</code>.</p>
+</blockquote>
+<p><strong>Metodo GET.</strong> Il metodo <code>GET</code> definisce una richiesta per <u>ottenere</u> una risorsa definita dall'<code>URL</code>. Peculiarità di una request <code>GET</code>:
+- <code>req::body</code> è vuoto.
+- L'unico modo per il <em>client</em> di inviare dati è il campo <code>req::url::query</code>.
+- Il <em>server</em> invia i dati in <code>res::body</code>. La codifica del body è definita in un header di <code>res::header</code> dal nome <code>content-type</code>.</p>
+<p>Esempi di utilizzo:
+- Navigazione web: ogni pagina viene ottenuta tramite request <code>GET</code>.
+- Immagini: ogni immagine visualizzata in una pagina viene ottenuta dopo richiesta <code>GET</code>.
+- Ricerche: il testo da ricercare viene passato dal <em>client</em> attraverso i parametri di <code>req::url::query</code>.</p>
+<p><strong>Metodo POST.</strong> Il metodo <code>POST</code> definisce una richiesta per <u>modificare</u>, <u>creare</u>, <u>eliminare</u> la risorsa definita in <code>req::url</code>.
+- <code>req::body</code> non è vuoto e viene usato per inviare i dati. Può contenere dati strutturati (<code>XML</code>, <code>JSON</code>), immagini, testo, eccetera.
+- <code>req::query</code> solitamente è inutilizzato.</p>
+<p>Esempi di utilizzo:
+- Autenticazione: quando un utente si autentica per effettuare il <em>login</em> in un sito la richiesta è <code>POST</code>.
+- Modifica stato dello studente: quando si modifica se uno studente è presente, presente fuori aula, ecc...
+- Quando si carica un'immagine di profilo.
+- Quando si effettua il logout.
+- Quando si crea un contenuto su un social network o sito in generale.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://datatracker.ietf.org/doc/html/rfc3986&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>In questa dispensa non abbiamo bisogno di distinguere tra <code>HTTP</code> e <code>HTTPS</code>, per cui useremo solamente il termine <code>HTTP</code>, valido per entrambi i protocolli.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Esempio: nel <code>req::body</code> vanno username e password in un form di login; in <code>req::url::query</code> va il testo da ricercare quando si effettua una ricerca.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Non esiste <code>query</code> nella response.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Possibili valori sono: <code>GET/POST/DELETE/OPTIONS/PUT/PATCH</code>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Indica una riga composta solamente dai caratteri Carriage Return (CR) e Line Feed (LF), in pratica è una riga vuota.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Torna su
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.prune", "navigation.indexes", "navigation.path", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.footnote.tooltips", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mermaid.mjs" type="module"></script>
+      
+        <script src="../../javascripts/highlight-lines.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+    "ticks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "show_ticks": false,
+    "width": 12,
+    "sections": [
+        {
+            "name": "accept()",
+            "bars": [
+                {"label": "accept()", "start": 0, "end": 12, "style": "active", "duration": "~ms"}
+            ]
+        },
+        {
+            "id": "accept",
+            "name": "CPU",
+            "bars": [
+                {"label": "ascolto", "start": 0, "end": 1.5, "style": "crit", "duration": "~ns"},
+                {"label": "attesa SYN (IDLE)", "end": 4, "style": "idle", "duration": "~ms"},
+                {"label": ["elabora", "SYN"], "end": 5.2, "style": "crit", "row": "srv_final", "duration": "~ns"},
+                {"label": ["invio", "SYN+ACK"], "end": 6.4, "style": "crit", "row": "srv_final", "duration": "~ns"},
+                {"label": ["attesa", "ACK (IDLE)"], "end": 10.5, "style": "idle", "duration": "~ms"},
+                { "id":"end", "label": ["elabora", "ACK"], "end": 12, "style": "crit", "duration": "~ns"}
+            ]
+        }
+    ],
+    "markers": [
+        {"at": 4, "label": "arrivo SYN", "color": "yellow"},
+        {"at": 10.5, "label": "arrivo ACK", "color": "yellow"},
+        {"at": 12, "position": "bottom", "label": "si sblocca", "color": "green"}
+    ]
+}
