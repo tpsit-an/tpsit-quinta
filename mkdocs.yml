@@ -90,9 +90,9 @@ nav:
       - Linea di esecuzione bloccata: big-picture/io/0.bloccata.md
       - "connect e accept": big-picture/io/1.connect e accept.md
       - "send e recv": big-picture/io/2.send e recv.md
-    - Client-Server:
-      - "OneToOne": big-picture/client-server/one2one.md
-      - "ManyToOne": big-picture/client-server/many2one.md
+    # - Client-Server:
+    #   - "OneToOne": big-picture/client-server/one2one.md
+    #   - "ManyToOne": big-picture/client-server/many2one.md
   # - Architettura client-server:
   #   - Tiers: client-server/index.md
   # - HTTP:
