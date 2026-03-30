@@ -77,7 +77,7 @@
                 {
                     "label": "send()",
                     "start": 2,
-                    "end": 12,
+                    "end": 11.65,
                     "style": "active",
                     "duration": "~ms"
                 }

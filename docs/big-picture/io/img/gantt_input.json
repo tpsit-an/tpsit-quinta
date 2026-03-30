@@ -19,6 +19,7 @@
         }
     ],
     "markers": [
-        {"at": 28, "label": "pressione Invio", "color": "yellow"}
+        {"at": 28, "label": "pressione Invio", "color": "yellow"},
+        {"at": 30, "label": "si sblocca", "position": "bottom", "color": "green"}
     ]
 }

@@ -17,14 +17,14 @@
                 {"label": "attesa SYN (IDLE)", "end": 4, "style": "idle", "duration": "~ms"},
                 {"label": ["elabora", "SYN"], "end": 5.2, "style": "crit", "row": "srv_final", "duration": "~ns"},
                 {"label": ["invio", "SYN+ACK"], "end": 6.4, "style": "crit", "row": "srv_final", "duration": "~ns"},
-                {"label": ["attesa", "ACK (IDLE)"], "end": 9, "style": "idle", "duration": "~ms"},
+                {"label": ["attesa", "ACK (IDLE)"], "end": 10.5, "style": "idle", "duration": "~ms"},
                 { "id":"end", "label": ["elabora", "ACK"], "end": 12, "style": "crit", "duration": "~ns"}
             ]
         }
     ],
     "markers": [
         {"at": 4, "label": "arrivo SYN", "color": "yellow"},
-        {"at": 9, "label": "arrivo ACK", "color": "yellow"},
-        {"at": 12, "label": "si sblocca", "color": "green"}
+        {"at": 10.5, "label": "arrivo ACK", "color": "yellow"},
+        {"at": 12, "position": "bottom", "label": "si sblocca", "color": "green"}
     ]
 }

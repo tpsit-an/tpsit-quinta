@@ -19,6 +19,7 @@
         }
     ],
     "markers": [
-        {"at": 9, "label": "arrivo dati", "color": "yellow"}
+        {"at": 9, "label": "arrivo dati", "color": "yellow"},
+        {"at": 10, "position": "bottom", "label": "si sblocca", "color": "green"}
     ]
 }

@@ -21,6 +21,8 @@
     ],
     "markers": [
         {"at": 8, "label": "arrivo SYN+ACK", "color": "yellow"},
-        {"at": 10, "label": "si sblocca", "color": "green"}
+        {"at": 10, "label": "si sblocca", 
+        "position": "bottom",
+        "color": "green"}
     ]
 }

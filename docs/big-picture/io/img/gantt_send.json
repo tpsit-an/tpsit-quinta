@@ -19,6 +19,7 @@
         }
     ],
     "markers": [
-        {"at": 9, "label": "arrivo ACK", "color": "yellow"}
+        {"at": 9, "label": "arrivo ACK", "color": "yellow"},
+        {"at": 10, "label": "si sblocca", "color": "green", "position": "bottom"}
     ]
 }
