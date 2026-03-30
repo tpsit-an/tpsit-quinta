@@ -76,7 +76,7 @@
             "bars": [
                 {
                     "label": "send()",
-                    "start": 0,
+                    "start": 2,
                     "end": 12,
                     "style": "active",
                     "duration": "~ms"
